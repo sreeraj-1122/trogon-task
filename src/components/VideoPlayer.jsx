@@ -7,12 +7,12 @@ const VideoPlayer = ({ videoUrl }) => {
   }
 
   return (
-    <div className="flex justify-center w-full">
+    <div className="flex justify-center w-full md:h-[500px] h-[300px]">
       <ReactPlayer
         url={videoUrl}
         controls
         width="100%"
-        height="500px"
+        height="100%"
         className="shadow-lg rounded-lg"
         playing={false} 
         config={{

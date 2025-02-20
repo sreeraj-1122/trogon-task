@@ -14,7 +14,9 @@ const VideoDetail = () => {
     const fetchVideo = async () => {
       try {
         const response = await getVideos(videoId);
-        const selectedVideo = response.data.find((v) => v.id.toString() === videoId);
+        const selectedVideo = response.data.find(
+          (v) => v.id.toString() === videoId
+        );
         setVideo(selectedVideo);
       } catch (err) {
         setError("Failed to fetch video details. Please try again.");
@@ -26,7 +28,12 @@ const VideoDetail = () => {
     fetchVideo();
   }, [videoId]);
 
-  if (loading) return <p className="text-white">Loading video...</p>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-32">
+        <div className="animate-spin rounded-full h-10 w-10 border-4 border-blue-500 border-t-transparent"></div>
+      </div>
+    );
   if (error) return <p className="text-red-500">{error}</p>;
 
   const handleDownload = () => {
@@ -46,14 +53,14 @@ const VideoDetail = () => {
       <VideoPlayer videoUrl={video?.video_url} />
 
       <div className="flex gap-4 mt-6">
-        <button 
+        <button
           className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition"
           onClick={handleDownload}
         >
           <FaDownload /> Download
         </button>
 
-        <button 
+        <button
           className="flex items-center gap-2 bg-red-600 text-white px-5 py-2 rounded-lg shadow hover:bg-red-700 transition"
           onClick={handleDoubt}
         >
