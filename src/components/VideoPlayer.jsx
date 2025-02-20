@@ -13,7 +13,6 @@ const VideoPlayer = ({ videoUrl }) => {
         controls
         width="100%"
         height="100%"
-        className="shadow-lg rounded-lg"
         playing={false} 
         config={{
           youtube: {
