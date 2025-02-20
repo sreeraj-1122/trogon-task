@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getSubjects } from "../services/api";
 import { FaArrowRight } from "react-icons/fa";
+import { HiOutlineChevronLeft } from "react-icons/hi"; // Import back arrow icon
 
 const Home = () => {
   const [subjects, setSubjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
     const fetchSubjects = async () => {
@@ -23,7 +25,15 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="p-1 md:p-6 bg-purple-700 min-h-screen text-white">
+    <div className="p-1 md:p-6 bg-purple-700 min-h-screen text-white relative">
+      {/* Back Arrow Button */}
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute top-5 left-5 text-white text-3xl"
+      >
+        <HiOutlineChevronLeft />
+      </button>
+
       <h1 className="text-3xl font-bold text-center mb-6 mt-2">Subjects</h1>
 
       {loading && (
@@ -36,13 +46,16 @@ const Home = () => {
 
       <div className="relative mt-6 p-6">
         {subjects.map((subject, index) => (
-          <Link key={subject.id} to={`/subjects/${subject.id}`} className="flex items-center  relative mb-6 gap-6 p-3">
-            
+          <Link
+            key={subject.id}
+            to={`/subjects/${subject.id}`}
+            className="flex items-center relative mb-6 gap-6 p-3"
+          >
             {index !== subjects.length - 1 && (
               <div className="absolute left-[35px] top-12 h-full w-[2px] bg-gray-300"></div>
             )}
 
-            <div className="relative z-10 w-12 h-12 bg-white text-purple-700 font-bold flex items-center justify-center rounded-full border-4 border-purple-400 ">
+            <div className="relative z-10 w-12 h-12 bg-white text-purple-700 font-bold flex items-center justify-center rounded-full border-4 border-purple-400">
               {index + 1}
             </div>
 
