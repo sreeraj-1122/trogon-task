@@ -23,8 +23,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-purple-700 min-h-screen text-white">
-      <h1 className="text-3xl font-bold text-center mb-6">Subjects</h1>
+    <div className="p-1 md:p-6 bg-purple-700 min-h-screen text-white">
+      <h1 className="text-3xl font-bold text-center mb-6 mt-2">Subjects</h1>
 
       {loading && (
         <div className="flex justify-center items-center h-32">

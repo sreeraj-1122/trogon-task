@@ -26,14 +26,9 @@ const navigate=useNavigate()
 
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center p-8  "
-      style={{
-        backgroundImage: "url('https://images.pexels.com/photos/7130555/pexels-photo-7130555.jpeg?cs=srgb&dl=pexels-codioful-7130555.jpg&fm=jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative min-h-screen flex flex-col items-center p-8   bg-purple-700"
     >
-      <h1 className="text-gray-900 text-3xl font-bold mb-8">Modules</h1>
+      <h1 className="text-white text-3xl font-bold mb-8">Modules</h1>
       {loading && (
         <div className="flex justify-center items-center h-32">
           <div className="animate-spin rounded-full h-10 w-10 border-4 border-blue-500 border-t-transparent"></div>
@@ -64,3 +59,4 @@ const navigate=useNavigate()
 };
 
 export default Modules;
+  

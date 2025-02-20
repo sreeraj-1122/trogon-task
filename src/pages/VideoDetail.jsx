@@ -47,12 +47,12 @@ const VideoDetail = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-8">
-      <h1 className="text-gray-900 text-3xl font-bold mb-4">{video?.title}</h1>
-      <p className="text-gray-600 text-lg mb-6">{video?.description}</p>
+    <div className="flex flex-col  p-8">
       <VideoPlayer videoUrl={video?.video_url} />
+      <h1 className="text-gray-900 text-xl font-bold mb-1 mt-6">{video?.title}</h1>
+      <p className="text-gray-600 text-lg mb-6">{video?.description}</p>
 
-      <div className="flex gap-4 mt-6">
+      <div className="flex gap-4 mt-1">
         <button
           className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition"
           onClick={handleDownload}
